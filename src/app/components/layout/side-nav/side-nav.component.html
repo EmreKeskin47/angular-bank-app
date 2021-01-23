@@ -1,3 +1,4 @@
+<!-- SideNav component is generated using command ng generate @angular/material:material-nav --name=side-nav -->
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav
         #drawer
@@ -13,20 +14,15 @@
                 mat-list-item
                 href="#"
             >
-                Link 1
+                Giriş Yap
             </a>
             <a
                 mat-list-item
-                href="#"
+                href="/signup"
             >
-                Link 2
-            </a>
-            <a
-                mat-list-item
-                href="#"
-            >
-                Link 3
+                Üye Ol
             </a>
         </mat-nav-list>
     </mat-sidenav>
+    <router-outlet></router-outlet>
 </mat-sidenav-container>
