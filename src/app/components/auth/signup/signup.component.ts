@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   constructor(private router: Router) {}
   onSubmit() {
-    console.log('onSumbit');
     this.router.navigate(['']);
   }
 }
