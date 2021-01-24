@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     SideNavComponent,
     SignupComponent,
     CreateAccountComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
