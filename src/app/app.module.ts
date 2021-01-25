@@ -41,6 +41,7 @@ import { LoginComponent } from './components/auth/login/login.component';
     NgbModule,
     BrowserAnimationsModule,
     LayoutModule,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,

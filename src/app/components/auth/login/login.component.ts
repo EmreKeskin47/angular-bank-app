@@ -7,7 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  username: string = '';
+  password: string = '';
+
   constructor(private router: Router) {}
+
   onSubmit() {
     this.router.navigate(['']);
   }
