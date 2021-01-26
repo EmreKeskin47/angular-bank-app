@@ -35,14 +35,16 @@ export class UserService {
     });
   }
 
-  addRow(user: User): void {
+  addRow(user: User): boolean {
+    if (!user) {
+      return false;
+    }
     this.db.users.add({
       name: user.name,
       password: user.password,
     });
-
     this.loadRows();
-    this.newUser = new User('test', 'test');
+    return true;
   }
 
   authUser(username: string, password: string): { [key: string]: any } {
