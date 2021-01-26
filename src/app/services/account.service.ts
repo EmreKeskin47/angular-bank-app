@@ -16,13 +16,41 @@ export class AccountService {
   }
 
   clearRows(): void {
-    this.db.users.clear().then((result: any) => console.log(result));
+    this.db.accounts.clear().then((result: any) => console.log(result));
     this.loadRows();
   }
 
   loadRows(): void {
-    this.db.users.toArray().then((p: any) => {
+    this.db.accounts.toArray().then((p: any) => {
       this.rows = p;
     });
+  }
+
+  hasAccount(name: string): boolean {
+    if (name) {
+      this.loadRows();
+      var i;
+      for (i = 0; i < this.rows.length; i++) {
+        if (this.rows[i].username.toString() == name.toString()) {
+          return true;
+        }
+      }
+      return false;
+    }
+    return false;
+  }
+
+  addAccount(username: string, balance: number, currency: string): boolean {
+    let added = false;
+    if (username && balance && currency) {
+      this.db.accounts
+        .add({
+          username: username,
+          balance: balance,
+          currency: currency,
+        })
+        .then((added = true));
+    }
+    return added;
   }
 }

@@ -1,6 +1,5 @@
 import { DbInitService } from './db/db-init.service';
 import { Injectable } from '@angular/core';
-import Dexie from 'dexie';
 import { User } from '../models/User';
 
 @Injectable({
@@ -42,17 +41,16 @@ export class UserService {
   authUser(username: string, password: string): { [key: string]: any } {
     let nameExist = false;
     let passCorrect = false;
-    this.db.users.toArray().then((row: any) => {
-      var i;
-      for (i = 0; i < row.length; i++) {
-        if (row[i].name === username) {
-          nameExist = true;
-          if (row[i].password == password) {
-            passCorrect = true;
-          }
+    this.loadRows();
+    var i;
+    for (i = 0; i < this.rows.length; i++) {
+      if (this.rows[i].name === username) {
+        nameExist = true;
+        if (this.rows[i].password == password) {
+          passCorrect = true;
         }
       }
-    });
+    }
     return {
       nameCheck: nameExist,
       passCheck: passCorrect,
