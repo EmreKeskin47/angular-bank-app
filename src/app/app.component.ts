@@ -1,7 +1,5 @@
-import { UserService } from './services/user.service';
+import { DbInitService } from './services/db/db-init.service';
 import { Component } from '@angular/core';
-import Dexie from 'dexie';
-import { User } from './models/User';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +9,10 @@ import { User } from './models/User';
 export class AppComponent {
   title = 'bank-app';
 
-  constructor(private userDbService: UserService) {}
+  constructor(private dbService: DbInitService) {}
 
   ngOnInit() {
-    this.userDbService.makeDatabase();
-    this.userDbService.connectToDatabase();
+    this.dbService.makeDatabase();
+    this.dbService.connectToDatabase();
   }
 }

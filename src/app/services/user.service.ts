@@ -1,3 +1,4 @@
+import { DbInitService } from './db/db-init.service';
 import { Injectable } from '@angular/core';
 import Dexie from 'dexie';
 import { User } from '../models/User';
@@ -10,18 +11,9 @@ export class UserService {
   newUser!: User;
   rows: User[] = [];
 
-  makeDatabase(): void {
-    this.db = new Dexie('BankDatabase');
-    this.db.version(1).stores({
-      users: 'name, password',
-    });
+  constructor(private bdService: DbInitService) {
+    this.db = bdService.db;
     this.loadRows();
-  }
-
-  connectToDatabase(): void {
-    this.db.open().catch((error: string) => {
-      alert('Errod during connecting to database : ' + error);
-    });
   }
 
   clearRows(): void {
