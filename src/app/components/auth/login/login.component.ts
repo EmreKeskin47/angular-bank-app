@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,9 +11,19 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userDbService: UserService) {}
 
   onSubmit() {
-    this.router.navigate(['']);
+    let { nameCheck, passCheck } = this.userDbService.authUser(
+      this.username,
+      this.password
+    );
+    if (!nameCheck) {
+      alert('Given username do not exist in the database');
+    } else if (!passCheck) {
+      console.log('Given password do not match given username');
+    } else {
+      this.router.navigate(['']);
+    }
   }
 }
