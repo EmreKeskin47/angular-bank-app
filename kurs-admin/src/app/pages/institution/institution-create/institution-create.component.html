@@ -1,0 +1,30 @@
+<div>
+    <div class="m-4 mt-4">
+        <h2> İşletme Yarat</h2>
+    </div>
+    <form class="example-form">
+        <div class="m-3">
+            <mat-form-field class="example-form">
+                <mat-label class="mx-2">İşletme Adı</mat-label>
+                <input type="email" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="nameFormControl.hasError('required')"> işletme adı alanı <strong>boş bırakılamaz</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="m-3">
+            <mat-form-field class="example-form">
+                <mat-label class="mx-2">Açıklama (Opsiyonel)</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="m-3">
+            <mat-form-field class="example-form">
+                <mat-label class="mx-2">İşletme Resmi URL (opsiyonel)</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="m-3 d-flex">
+        <button mat-raised-button color="primary" class="px-4">İşletme Yarat</button>
+    </div>
+</div>

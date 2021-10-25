@@ -1,0 +1,10 @@
+<div class="pt-3">
+    <div class="m-4 mt-4">
+        <h2 class="text-center"> İşletme Listesi</h2>
+    </div>
+    <div class="d-flex m-3">
+        <div *ngFor="let item of insList" class="m-3">
+            <app-card [name]="item.name" [description]="item.description" [imageUrl]="tempLogo"></app-card>
+        </div>
+    </div>
+</div>

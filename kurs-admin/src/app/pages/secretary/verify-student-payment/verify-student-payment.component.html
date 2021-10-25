@@ -1,0 +1,30 @@
+<div class="m-3">
+    <div class="m-4 mt-4">
+        <h2 class="text-center"> Öğrenciyi İşletmeye Ekle</h2>
+    </div>
+    <form>
+        <h2>Hangi işletmeye öğrenci eklemek istersiniz</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>İşletmeler</mat-label>
+            <mat-select name="ins" (selectionChange)="setIns($event)">
+                <mat-option *ngFor="let item of allIns" [value]="item.name">
+                    {{item.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <form>
+        <h2>Hangi ödemesi onaylanmamış öğrenciyi eklemek istersiniz</h2>
+        <mat-form-field appearance="fill">
+            <mat-label>Öğrenciler</mat-label>
+            <mat-select name="ins" (selectionChange)="setStudent($event)">
+                <mat-option *ngFor="let item of students" [value]="item.id">
+                    {{item.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <div class="mx-3">
+        <button mat-raised-button color="primary" class="px-4">İşletmeye Ekle</button>
+    </div>
+</div>

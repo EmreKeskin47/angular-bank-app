@@ -1,0 +1,35 @@
+<div>
+    <div class="m-4 mt-4">
+        <h2 class="text-center"> Kullancı Yarat</h2>
+    </div>
+    <form class="example-form">
+        <div class="m-3">
+            <mat-form-field class="example-form">
+                <mat-label class="mx-2">Email</mat-label>
+                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')"> Lütfen geçerli bir eposta adresi giriniz </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')"> email kısmı <strong>boş bırakılamaz</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="m-3">
+            <mat-form-field class="example-form">
+                <mat-label class="mx-2">İsim</mat-label>
+                <input type="email" matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="nameFormControl.hasError('required')"> isim alanı <strong>boş bırakılamaz</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="m-3">
+            <label id="example-radio-group-label">Kullancı tipi seçiniz</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="userType">
+                <mat-radio-button class="example-radio-button" *ngFor="let item of types" [value]="item">
+                    {{item}}
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </form>
+    <div class="mx-3">
+        <button mat-raised-button color="primary" class="px-4">Kullanıcı Yarat</button>
+    </div>
+</div>
